@@ -17,14 +17,14 @@
 					<h:outputLabel value="Pesquisar:" />
 					<h:inputText id="campo-busca" styleClass="campo-busca"
 						value="#{componentesBean.filtro}">
-						<f:ajax event="keyup" listener="#{componentesBean.buscar}"
+						<f:ajax event="keyup" listener="#{componentesBean.buscarBanco}"
 							render="relatorio" />
 					</h:inputText>
 				</h:panelGrid>
 			</div>
 			<h:dataTable id="relatorio"
-				value="#{not empty componentesBean.filtro?componentesBean.filtrados:componentesBean.lista}"
-				var="item" rendered="#{not empty componentesBean.lista}">
+				value="#{not empty componentesBean.filtro?componentesBean.filtradosBanco:componentesBean.listaBanco}"
+				var="item" rendered="#{not empty componentesBean.listaBanco}">
 				<h:column headerClass="check-column">
 					<f:facet name="header">
 						<h:selectBooleanCheckbox id="checkAll"
@@ -42,9 +42,9 @@
 				<h:column headerClass="nome-column">
 					<f:facet name="header">
 					Nome
-					<h:commandButton styleClass="sort"
+					<h:commandButton styleClass="sortBanco"
 							image="#{componentesBean.sorted?(componentesBean.asc?'images/asc.gif':'images/desc.gif'):'images/sort.gif'}">
-							<f:ajax event="click" listener="#{componentesBean.sort}"
+							<f:ajax event="click" listener="#{componentesBean.sortBanco}"
 								render="relatorio" />
 						</h:commandButton>
 					</f:facet>

@@ -1,5 +1,13 @@
 package com.betha.business;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="pessoas")
+
 public class Pessoa {
 	private boolean selecionado;
 	private Integer codigo;
@@ -33,6 +41,8 @@ public class Pessoa {
 		this.telefone = telefone;
 	}
 
+	@Id
+	@GeneratedValue
 	public Integer getCodigo() {
 		return codigo;
 	}
